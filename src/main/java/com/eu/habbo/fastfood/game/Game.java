@@ -469,7 +469,7 @@ public class Game implements Runnable, IDisposable
             stats.save();
         }
 
-        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("INSERT INTO games (start_time, end_time) VALUES (?, ?)"))
+        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("INSERT INTO ff_games (start_time, end_time) VALUES (?, ?)"))
         {
             statement.setLong(1, this.startTime);
             statement.setLong(2, System.currentTimeMillis());
