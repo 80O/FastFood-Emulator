@@ -27,7 +27,7 @@ public class GamePlayerStats
     public void save()
     {
         try (Connection connection = FastFood.database.dataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO game_scores (user_id, game_id, score, missiles, shields, parachutes, empty_plates, crashed_plates) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"))
+             PreparedStatement statement = connection.prepareStatement("INSERT INTO ff_game_scores (user_id, game_id, score, missiles, shields, parachutes, empty_plates, crashed_plates) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"))
         {
             statement.setInt(1, this.player.id());
             statement.setLong(2, this.game.startTime);

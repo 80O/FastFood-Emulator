@@ -33,7 +33,7 @@ public class GameManager implements Runnable, IDisposable
             return null;
 
         try (Connection connection = FastFood.database.dataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE arcturus_account = ? AND hotel_user_id = ? LIMIT 1"))
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM ff_users WHERE arcturus_account = ? AND hotel_user_id = ? LIMIT 1"))
         {
             statement.setString(1, arcturusAccount);
             statement.setInt(2, hotelUserId);
@@ -46,7 +46,7 @@ public class GameManager implements Runnable, IDisposable
                 }
             }
 
-            try (PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO users (arcturus_account, hotel_user_id, hotel_user_name, hotel_user_look, hotel_name) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS))
+            try (PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO ff_users (arcturus_account, hotel_user_id, hotel_user_name, hotel_user_look, hotel_name) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS))
             {
                 insertStatement.setString(1, arcturusAccount);
                 insertStatement.setInt(2, hotelUserId);

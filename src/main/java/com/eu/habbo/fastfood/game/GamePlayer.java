@@ -49,7 +49,7 @@ public class GamePlayer implements ISerialize, Comparable<GamePlayer>
     public void update()
     {
         try (Connection connection = FastFood.database.dataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement("UPDATE users SET hotel_user_name = ?, hotel_user_look = ?, hotel_name = ?, missiles = ?, bigparachutes = ?, shields = ?, last_seen = ? WHERE id = ?"))
+             PreparedStatement statement = connection.prepareStatement("UPDATE ff_users SET hotel_user_name = ?, hotel_user_look = ?, hotel_name = ?, missiles = ?, bigparachutes = ?, shields = ?, last_seen = ? WHERE id = ?"))
         {
             statement.setString(1, this.hotelUserName);
             statement.setString(2, this.look);

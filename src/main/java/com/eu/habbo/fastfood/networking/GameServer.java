@@ -119,13 +119,14 @@ public class GameServer implements IDisposable
 
     public boolean validTicket(String ticket)
     {
+		// RETURN TRUE IF YOU DONT CARE ABOUT USER VALIDATION. THIS HELP PREVENT UNAUTHORIZED ACCESS & SCRIPTING!
         if (this.authenticationTickets.containsKey(ticket))
         {
             return true;
         }
 
         boolean found = false;
-        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM login_tickets WHERE ticket LIKE ? LIMIT 1"))
+        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM ff_login_tickets WHERE ticket LIKE ? LIMIT 1"))
         {
             statement.setString(1, ticket);
             try (ResultSet set  = statement.executeQuery())

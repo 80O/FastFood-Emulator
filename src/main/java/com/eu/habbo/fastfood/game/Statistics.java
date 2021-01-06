@@ -21,7 +21,7 @@ public class Statistics
 
     public static void load()
     {
-        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM statistics"))
+        try (Connection connection = FastFood.database.dataSource().getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM ff_statistics"))
         {
             try (ResultSet set = statement.executeQuery())
             {
@@ -56,7 +56,7 @@ public class Statistics
     public static void save()
     {
         try (Connection connection = FastFood.database.dataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement("UPDATE statistics SET " +
+             PreparedStatement statement = connection.prepareStatement("UPDATE ff_statistics SET " +
                      "missiles_launched   = ?, " +
                      "shields_used        = ?, " +
                      "big_parachutes_used = ?, " +
