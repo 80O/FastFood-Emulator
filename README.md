@@ -5,6 +5,8 @@ Created by The General / Wesley
 
 Please checkout http://arcturus.pw for the official Arcturus discord.
 
+Do not remove credits or take any credit. Do not claim as yours. Do not modify the domain.
+
 ### Features
 
 - Automatic Game Creation
